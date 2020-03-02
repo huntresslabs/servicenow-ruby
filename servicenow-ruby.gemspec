@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "servicenow/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "servicenow-ruby"
+  spec.name          = "servicenow-api"
   spec.version       = ServiceNow::VERSION
   spec.authors       = ["Chris Bisnett"]
   spec.email         = ["cbisnett@gmail.com"]
 
   spec.summary       = "Ruby wrapper for the ServiceNow REST API"
-  spec.description   = "Ruby wrapper for the ServiceNow REST API"
+  spec.description   = "Ruby wrapper for the ServiceNow REST API (formerly servicenow-ruby)"
   spec.homepage      = "https://github.com/huntresslabs/servicenow-ruby"
   spec.license       = "MIT"
 
@@ -24,11 +24,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", ">= 1.16"
-  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rake", ">= 12.3.3"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "byebug"
 
-  spec.add_dependency "faraday", "~> 0.15"
-  spec.add_dependency "faraday_middleware", "~> 0.13"
+  spec.add_dependency "faraday", "< 1.0"
+  spec.add_dependency "faraday_middleware", "< 1.0"
   spec.add_dependency "activesupport", ">= 5.0"
 end
