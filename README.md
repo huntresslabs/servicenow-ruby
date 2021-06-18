@@ -15,7 +15,7 @@ API documentation:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'servicenow-ruby'
+gem 'servicenow-api'
 ```
 
 And then execute:
@@ -24,14 +24,14 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install servicenow-ruby
+    $ gem install servicenow-api
 
 ## Usage
 
 To create a client for a ServiceNow instance using OAuth:
 
 ```ruby
-client = ServiceNow.authenticate(
+client = ServiceNow::Client.authenticate(
     "myhost.service-now.com",
     "client_id",
     "client_secret",
