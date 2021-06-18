@@ -31,7 +31,7 @@ Or install it yourself as:
 To create a client for a ServiceNow instance using OAuth:
 
 ```ruby
-client = ServiceNow.authenticate(
+client = ServiceNow::Client.authenticate(
     "myhost.service-now.com",
     "client_id",
     "client_secret",
