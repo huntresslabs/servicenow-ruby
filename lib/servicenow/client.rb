@@ -6,6 +6,26 @@ module ServiceNow
 
     class << self
       def authenticate(instance_id, client_id, client_secret, username, password)
+        authenticate_with_params(instance_id,
+          grant_type: "password",
+          client_id: client_id,
+          client_secret: client_secret,
+          username: username,
+          password: password
+        )
+      end
+
+      def authenticate_with_refresh_token(instance_id, client_id, client_secret, refresh_token)
+        authenticate_with_params(instance_id,
+          grant_type: "refresh_token",
+          client_id: client_id,
+          client_secret: client_secret,
+          refresh_token: refresh_token,
+          scope: "useraccount"
+        )
+      end
+
+      private def authenticate_with_params(instance_id, params)
         connection_options = {
           url: "https://#{instance_id}.service-now.com/"
         }
@@ -16,14 +36,6 @@ module ServiceNow
           faraday.response :raise_error
           faraday.adapter Faraday.default_adapter
         end
-
-        params = {
-          grant_type: "password",
-          client_id: client_id,
-          client_secret: client_secret,
-          username: username,
-          password: password
-        }
 
         response = conn.post('oauth_token.do', params)
         connection = Connection.new(instance_id, response.body["access_token"])

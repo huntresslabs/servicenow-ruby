@@ -2,6 +2,7 @@ require "servicenow/version"
 
 require "active_support"
 require "active_support/core_ext/hash"
+require "active_support/core_ext/module/delegation"
 
 module ServiceNow
   require "servicenow/api"

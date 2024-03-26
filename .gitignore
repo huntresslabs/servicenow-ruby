@@ -56,3 +56,4 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 Gemfile.lock
+.rspec_status
