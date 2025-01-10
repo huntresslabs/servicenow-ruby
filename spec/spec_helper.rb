@@ -12,3 +12,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+require "active_support"
+puts
+puts "\e[93mUsing ActiveSupport #{ActiveSupport.version}\e[0m"
