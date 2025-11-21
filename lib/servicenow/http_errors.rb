@@ -1,5 +1,5 @@
 module ServiceNow
-  class HttpErrors < Faraday::Response::Middleware
+  class HttpErrors < Faraday::Middleware
     def on_complete(env)
       case env[:status].to_i
       when 400
