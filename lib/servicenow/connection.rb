@@ -1,5 +1,4 @@
 require "faraday"
-require "faraday_middleware"
 
 module ServiceNow
   class Connection
@@ -12,7 +11,7 @@ module ServiceNow
       @connection = Faraday::Connection.new(connection_options) do |conn|
         conn.use HttpErrors
 
-        conn.authorization :Bearer, @token
+        conn.request :authorization, :Bearer, @token
         conn.request :json
         conn.response :json
         conn.adapter Faraday.default_adapter
