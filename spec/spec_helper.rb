@@ -1,5 +1,9 @@
 require "bundler/setup"
-require "servicenow"
+require "webmock/rspec"
+require 'dotenv/load'
+
+[["..", File::SEPARATOR, "lib"], ["support"]]
+  .each { |args| Dir.glob(File.join(File.dirname(__FILE__), *args, "**"), &method(:require)) }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
